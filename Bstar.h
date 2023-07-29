@@ -15,17 +15,18 @@ typedef struct Noh
 typedef struct BStarTree
 {
     Noh *raiz;
+    int ordem;
 } BStarTree;
 
-BStarTree *inicializaArvore(int ordem = Ordem);
+BStarTree *inicializaArvore(int ordem);
 
-BStarTree *inicializaNoh(int ordem = Ordem);
+BStarTree *inicializaNoh(int ordem);
 
 // Função de split usada quando há overflow em nós
 void split2in3(BStarTree *arvore, Noh *noh, int index);
 
 // Função para fazer o merge de nós em caso de underflow
-void mergeNoh(BStarTree* arvore, Noh* pai, int index);
+void mergeNoh(BStarTree *arvore, Noh *pai, int index);
 
 // Função caller da busca
 BStarTree *busca(BStarTree *arvore, int chave);
