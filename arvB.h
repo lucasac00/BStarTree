@@ -1,5 +1,5 @@
 /*
-IMPLEMENTAÇÃO DA ESTRUTURA DE DADOS ÁRVORE B* (ÁRVORE B ESTRELA)
+IMPLEMENTAÇÃO DA ESTRUTURA DE DADOS ÁRVORE B
 LUCAS DE ARAÚJO CARDOSO - 813583
 ARTHUR BRAGA DA FONSECA
 LUIZ OTÁVIO DE MELO
@@ -422,11 +422,13 @@ void arvB_imprime(ArvB raiz)
     printf("\n");
 }
 
+// Função pública para contar a quantidade de nós na árvore B
 int arvB_qtd_nos(ArvB raiz)
 {
     return arvB_qtd_nos_recursivo(raiz);
 }
 
+// Função auxiliar para contar a quantidade de chaves na árvore de forma recursiva
 int arvB_qtd_chaves_recursivo(ArvB no)
 {
     if (no == NULL)
@@ -441,6 +443,7 @@ int arvB_qtd_chaves_recursivo(ArvB no)
     return qtd;
 }
 
+// Função pública para contar a quantidade de chaves na árvore B
 int arvB_qtd_chaves(ArvB raiz)
 {
     return arvB_qtd_chaves_recursivo(raiz);
