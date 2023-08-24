@@ -1,2 +1,2 @@
-# BStarTree
-Implementação em C da Árvore B* (B-estrela)
+# B Tree
+Implementação em C da Árvore B
