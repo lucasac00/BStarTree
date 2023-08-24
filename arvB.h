@@ -83,7 +83,7 @@ int arvB_busca(ArvB no, int valor)
     }
 }
 
-// Função auxiliar da inserção em nó cheio, executa a divisão do nó cheio em
+// Função auxiliar da inserção em nó cheio, executa a divisão (split)
 void arvB_divide_filho(ArvB pai, int indice_filho)
 {
     ArvB filho = pai->filhos[indice_filho];
@@ -122,6 +122,7 @@ void arvB_divide_filho(ArvB pai, int indice_filho)
     pai->num_chaves++;
 }
 
+// Função principal de inserção 
 int arvB_insere_nao_cheio(ArvB no, int valor)
 {
     int i = no->num_chaves - 1;
@@ -157,6 +158,7 @@ int arvB_insere_nao_cheio(ArvB no, int valor)
     return 1;
 }
 
+// Função de inserção pública, chamada para inserir um valor na árvore B
 int arvB_insere(ArvB *raiz, int valor)
 {
     ArvB raiz_atual = *raiz;
@@ -210,6 +212,7 @@ int trocar_por_predecessor(ArvB no, int indice_chave)
     return predecessor;
 }
 
+// Função auxiliar para trocar uma chave por seu sucessor em um nó não folha
 int trocar_por_sucessor(ArvB no, int indice_chave)
 {
     ArvB no_atual = no->filhos[indice_chave + 1];
@@ -222,6 +225,7 @@ int trocar_por_sucessor(ArvB no, int indice_chave)
     return sucessor;
 }
 
+// Função para fundir dois nós quando necessário durante a remoção
 void merge_nos(ArvB pai, int indice_filho)
 {
     ArvB filho_esquerdo = pai->filhos[indice_filho];
@@ -258,6 +262,7 @@ void merge_nos(ArvB pai, int indice_filho)
     free(filho_direito);
 }
 
+// Função para emprestar uma chave do nó antecessor
 void empresta_do_antecessor(ArvB pai, int indice_filho)
 {
     ArvB filho = pai->filhos[indice_filho];
@@ -289,6 +294,7 @@ void empresta_do_antecessor(ArvB pai, int indice_filho)
     irmao->num_chaves--;
 }
 
+// Função para emprestar uma chave do nó sucessor
 void empresta_do_sucessor(ArvB pai, int indice_chave)
 {
     ArvB filho_atual = pai->filhos[indice_chave];
@@ -315,6 +321,7 @@ void empresta_do_sucessor(ArvB pai, int indice_chave)
     filho_sucessor->num_chaves--;
 }
 
+// Função de remoção pública, chamada para remover um valor da árvore B
 int arvB_remove(ArvB no, int valor)
 {
     int indice_chave = encontrar_indice_maior_igual(no->chaves, no->num_chaves, valor);
@@ -379,6 +386,7 @@ int arvB_remove(ArvB no, int valor)
     return 1;
 }
 
+// Função auxiliar para contar a quantidade de nós na árvore de forma recursiva
 int arvB_qtd_nos_recursivo(ArvB no)
 {
     if (no == NULL)
@@ -393,6 +401,7 @@ int arvB_qtd_nos_recursivo(ArvB no)
     return qtd;
 }
 
+// Função para imprimir as chaves da árvore em ordem
 void arvB_imprime_recursivo(ArvB no)
 {
     if (no != NULL)
@@ -406,6 +415,7 @@ void arvB_imprime_recursivo(ArvB no)
     }
 }
 
+// Função de impressão pública, chamada para imprimir as chaves da árvore em ordem
 void arvB_imprime(ArvB raiz)
 {
     arvB_imprime_recursivo(raiz);
