@@ -19,7 +19,7 @@ typedef struct NO
 
 typedef ArvBNoh *ArvB;
 
-// Função que cria uma árvore B estrela.
+// Função que cria uma árvore B.
 ArvB arvB_cria()
 {
     ArvB nova_arvore = (ArvB)malloc(sizeof(ArvBNoh));
@@ -51,7 +51,7 @@ void arvB_destroi_recursivo(ArvB no)
     free(no);
 }
 
-// Função caller para a função recursiva que libera o espaço de memória alocado pela árvore
+// Função pública para liberar o espaço de memória alocado pela árvore
 void arvB_destroi(ArvB *raiz)
 {
     if (raiz != NULL && *raiz != NULL)
